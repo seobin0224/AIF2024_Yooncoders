@@ -95,15 +95,15 @@ def render_home():
         st.write("---")  # 구분선 추가
 
         # 뉴스 시각화 버튼 추가
-        if st.button("📰 뉴스 시각화", use_container_width=True, key="news"):
-            st.session_state.page = "news_search"
-            st.rerun()
+        #if st.button("📰 뉴스 시각화", use_container_width=True, key="news"):
+            #st.session_state.page = "news_search"
+            #st.rerun()
 
-        st.markdown("""
-        <div class="description">
-        최신 뉴스 기사를 검색하고 웹툰으로 변환합니다.
-        </div>
-        """, unsafe_allow_html=True)
+        #st.markdown("""
+        #<div class="description">
+        #최신 뉴스 기사를 검색하고 웹툰으로 변환합니다.
+        #</div>
+        #""", unsafe_allow_html=True)
 
 def main():
     st.set_page_config(
@@ -138,13 +138,7 @@ def main():
             converter.render_ui()
         except Exception as e:
             st.error(f"교육/과학 콘텐츠 처리 중 오류 발생: {str(e)}")
-    
-    elif st.session_state.page == "news_search":
-        try:
-            render_news_search()
-        except Exception as e:
-            st.error(f"뉴스 검색 처리 중 오류 발생: {str(e)}")
-
+  
     # 에러 처리
     try:
         if st.session_state.get("error"):
